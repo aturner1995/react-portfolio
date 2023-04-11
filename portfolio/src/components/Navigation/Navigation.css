@@ -1,0 +1,29 @@
+span {
+    color: white;
+    text-decoration: none !important;
+}
+
+a {
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+}
+
+.prime-custom {
+    background-color: #ffffff !important;
+    color: black !important;
+    border: 0 !important;
+}
+
+.prime-custom:hover {
+    transform: scale(1.03);
+    
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links:hover {
+    transform: scale(1.05);
+}

@@ -1,0 +1,6 @@
+.text-left {
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    text-decoration: underline;
+}
