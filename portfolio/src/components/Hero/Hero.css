@@ -13,8 +13,6 @@
 }
 
 .hero {
-    width: 100% !important;
-    max-width: 100% !important;
     margin-top: -150px;
 }
 
@@ -31,4 +29,8 @@
 
 h1 {
     font-size: 300% !important;
+}
+
+.row {
+    --bs-gutter-x: 0 !important;
 }

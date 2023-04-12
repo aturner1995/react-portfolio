@@ -1,10 +1,10 @@
 import React from 'react';
-import {Row , Col, Container, Image } from 'react-bootstrap';
+import {Row , Col, Image } from 'react-bootstrap';
 import './Hero.css';
 
 const Hero = () => {
   return (
-        <Container className='hero'>
+        <div className='hero'>
             <Row>
                 <Col className='left'>
                     <div className="text mx-5">
@@ -24,7 +24,7 @@ const Hero = () => {
                 
                 </Col>
             </Row>
-        </Container>
+        </div>
   )
 }
 
