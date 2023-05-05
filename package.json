@@ -4,7 +4,8 @@
   "description": "An updated portfolio using the REACT framework and Express Server for the backend blog",
   "main": "index.js",
   "scripts": {
-    "build": "cd portfolio && npm install && npm run build",
+    "build": "cd backend && nom install && cd ../portfolio && npm install && npm run build",
+    "start": "node backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
