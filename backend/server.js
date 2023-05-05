@@ -12,7 +12,7 @@ const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, '/portfolio/build')));
 
 app.get('*', (req,res) => {
-    res.sendFile(path.join(__dirname, '/client/build/index.html'))
+    res.sendFile(path.join(__dirname, '/portfolio/build/index.html'))
 });
 
 const PORT = process.env.PORT || 3001;
