@@ -1,0 +1,8 @@
+.footer {
+    background-color: #fe8f73;
+    color: white;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}

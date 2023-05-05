@@ -11,19 +11,18 @@ a {
 
 .prime-custom {
     background-color: #ffffff !important;
-    color: black !important;
+    color: #292735 !important;
     border: 0 !important;
 }
 
 .prime-custom:hover {
-    transform: scale(1.03);
-    
+    transform: scale(1.1);
 }
 
 .logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .nav-links:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }

@@ -19,18 +19,18 @@ const Navigation = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" className='nav-icons'>
                         <Nav className="ms-auto">
-                            <NavLink to="#" className='me-3 nav-links'>
-                                <span>About Me</span>
-                            </NavLink>
-                            <NavLink to="#" className='me-3 nav-links'>
-                                <span>Projects</span>
-                            </NavLink>
-                            <NavLink to="#" className='me-3 nav-links'>
-                                <span>Resume</span>
-                            </NavLink>
-                            <NavLink to="#" className='text-center'>
-                                <Button className="d-flex align-items-center ms-2 prime-custom">Contact Me</Button>
-                            </NavLink>
+                            <a href="#background" className='me-3 nav-links'>
+                                <span>ABOUT ME</span>
+                            </a>
+                            <a href="#projects" className='me-3 nav-links'>
+                                <span>PROJECTS</span>
+                            </a>
+                            <a href="resume-aaronturner-2023.pdf" target='_blank' className='me-3 nav-links'>
+                                <span>RESUME</span>
+                            </a>
+                            <a href="mailto: aaturner1995@gmail.com" className='text-center'>
+                                <Button className="d-flex align-items-center prime-custom">CONTACT ME</Button>
+                            </a>
                         </Nav>
                     </Navbar.Collapse>
             </Navbar>

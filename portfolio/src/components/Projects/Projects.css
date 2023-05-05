@@ -1,0 +1,42 @@
+.image {
+    position: relative;
+    overflow: hidden;
+}
+
+.mainImage {
+    z-index: 1;
+}
+
+.secondImage {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: none;
+}
+
+.image:hover .secondImage {
+    opacity: 1;
+    display: block;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image:hover .mainImage {
+    opacity: 0;
+    display: block;
+}
+
+.prime-custom-2 {
+    background-color: #ff734f !important;
+    color: white !important;
+    border: 0 !important;
+}
+
+.prime-custom-2:hover {
+    background-color: #fe8f73 !important;    
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+}

@@ -7,24 +7,35 @@
     text-align: left;
 }
 
-
 .right {
     background-color: #ff734f;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .hero {
-    margin-top: -150px;
+    margin-top: -200px;
 }
 
 .headshot {
     display: flex;
-    margin-top: 25%;
+    margin-top: 32%;
     justify-content: center !important;
     text-align: center !important;
 }
 
+.headshot-small {
+    border-radius: 50%;
+    background-color: #ff734f;
+}
+
+.small-screen {
+    display: none;
+}
+
 .text {
-    margin-top: 150px;
+    margin-top: 200px;
 }
 
 h1 {
@@ -34,3 +45,28 @@ h1 {
 .row {
     --bs-gutter-x: 0 !important;
 }
+
+@media (max-width: 650px) {
+    .right {
+      display: none;
+    }
+  
+    .small-screen {
+      display: flex;
+      position: absolute;
+      left: 64%;
+      top: 68px;
+    }
+  
+    .left {
+      justify-content: flex-start;
+    }
+  }
+
+
+  @media (max-width: 360px) {
+  
+    .small-screen {
+      display: none
+    }
+  }

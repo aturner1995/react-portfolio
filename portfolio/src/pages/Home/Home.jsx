@@ -8,6 +8,7 @@ import Contact from '../../components/Contact/Contact';
 import Background from '../../components/Background/Background';
 
 const Home = () => {
+
     return (
       <div>
         <Hero />

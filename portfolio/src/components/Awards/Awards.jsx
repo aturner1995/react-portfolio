@@ -6,11 +6,11 @@ const Awards = () => {
   return (
     <div className='awards'>
         <Row>
-            <Col>
-                <Image src='/images/30.png' height='75' className='award-img-left'></Image>
+            <Col className='text-center'>
+                <Image src='/images/30.png' height='75'></Image>
             </Col>
-            <Col>
-            <Image src='/images/fast50.png' height='75' className='award-img-right'></Image>
+            <Col className='text-center'>
+            <Image src='/images/fast50.png' height='75'></Image>
             </Col>
         </Row>
     </div>
