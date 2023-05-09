@@ -5,6 +5,9 @@ import {
   Outlet
 } from "react-router-dom";
 import Home from './pages/Home/Home';
+import Blog from './pages/Home/Blog';
+import Login from './pages/Home/Login';
+import Profile from './pages/Home/Profile';
 import Footer from './components/Footer/Footer';
 import Navigation from './components/Navigation/Navigation';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -27,6 +30,18 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />
+      },
+      {
+        path: '/blog',
+        element: <Blog />
+      },
+      {
+        path: '/login',
+        element: <Login />
+      },
+      {
+        path: '/profile',
+        element: <Profile />
       },
     ]
   }
