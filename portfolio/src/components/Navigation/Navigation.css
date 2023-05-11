@@ -26,3 +26,7 @@ a {
 .nav-links:hover {
     transform: scale(1.05);
 }
+
+.custom {
+    background-color: #fe8f73;
+}

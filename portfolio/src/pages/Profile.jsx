@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import ProfileBlogs from '../components/Blogs/ProfileBlogs';
 import { Editor } from '@tinymce/tinymce-react';
-import ProfileBlogs from '../../components/Blogs/ProfileBlogs';
-
 
 const Profile = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [photo, setPhoto] = useState(null);
 
     const [prompt, setPrompt] = useState('');
 
@@ -20,17 +20,27 @@ const Profile = () => {
     }
 
     const handleDescriptionChange = (content, editor) => {
+        editor.setContent(content);
         setDescription(content);
+    }
+
+    const handlePhotoChange = (event) => {
+        setPhoto(event.target.files[0]);
     }
 
     const handleNewBlog = async (event) => {
         event.preventDefault();
 
-        if (title && description) {
+        if (title && description && photo) {
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('description', description);
+            formData.append('photo', photo);
+            console.log(formData)
+
             const response = await fetch('/api/blogs', {
                 method: 'POST',
-                body: JSON.stringify({ title, description }),
-                headers: { "Content-Type": "application/json" },
+                body: formData,
             });
 
             if (response.ok) {
@@ -42,7 +52,6 @@ const Profile = () => {
             }
         }
     }
-
     const handleAiSubmit = async (event) => {
         event.preventDefault();
         setPrompt('');
@@ -56,7 +65,10 @@ const Profile = () => {
 
             if (aiResponse.ok) {
                 const data = await aiResponse.json();
-                const [title, blog] = data.split('\n\n', 2)
+                const firstNewlineIndex = data.indexOf('\n');
+                const title = data.substring(0, firstNewlineIndex).replace('title: "', '').replace('"', '');
+                const blog = data.substring(firstNewlineIndex + 2).replace(/\n/g, '&nbsp;<br/>');
+                console.log(blog);
                 setDescription(blog);
                 setTitle(title);
             }
@@ -69,7 +81,7 @@ const Profile = () => {
 
     return (
         <>
-            <Row className='mx-5'>
+            <Row className='m-5'>
                 <Col className='mx-5' lg={7}>
                     <h3>Create a New Blog:</h3>
                     <form className="form new-blog-form" onSubmit={handleNewBlog}>
@@ -80,8 +92,14 @@ const Profile = () => {
                             </div>
                         </div>
                         <div className="form-group py-2">
-                            <label for="blog-body">Body:</label>
+                            <label htmlFor="blog-photo">Photo:</label>
                             <div>
+                                <input type="file" id="blog-photo" name="blog-photo" onChange={handlePhotoChange} accept="image/*" required />
+                            </div>
+                        </div>
+                        <div className="form-group py-2">
+                            <label for="blog-body">Body:</label>
+                            <div style={{ whiteSpace: 'pre-wrap' }}>
                                 <Editor
                                     value={description}
                                     apiKey="bfu93yxqm7w90mr33lp5gx7loru18fwje1rioa7dp3fsqque"
@@ -119,7 +137,7 @@ const Profile = () => {
                     </form>
                 </Col>
             </Row>
-            <ProfileBlogs className='my-5'/>
+            <ProfileBlogs />
         </>
     )
 }

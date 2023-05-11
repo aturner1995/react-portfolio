@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/blog/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const blogData = await Blog.findByPk(req.params.id, {
             include: [
@@ -30,8 +30,14 @@ router.get('/blog/:id', async (req, res) => {
                 },
             ]
         })
+        console.log(blogData)
+        if (!blogData) {
+            return res.status(404).json({ error: 'Blog not found' });
+        }
+
+
         const blog = blogData.get({ plain: true });
-        res.status(200).send(blog);
+        res.status(200).json(blog);
     }
     catch (err) {
         res.status(500).json(err);
@@ -41,16 +47,22 @@ router.get('/blog/:id', async (req, res) => {
 // Create a blog
 router.post('/', async (req, res) => {
     try {
+        const file = req.files.photo;
+        const  uploadPath = __dirname+ '/../../../portfolio/public/uploads/' + file.name
+
+        await file.mv(uploadPath);
+
         const blogData = await Blog.create({
             ...req.body,
+            photo: file.name, // Save the file name or path in your database
             user_id: req.session.user_id,
         });
         res.status(200).json(blogData);
-    }
-    catch (err) {
+    } catch (err) {
         res.status(400).json(err);
     }
 });
+
 // Delete a blog
 router.delete('/:id', async (req, res) => {
 

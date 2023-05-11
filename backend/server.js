@@ -7,6 +7,7 @@ const blogRoutes = require('./controllers/api/blogRoutes.js');
 const userRoutes = require('./controllers/api/userRoutes.js');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const routes = require('./controllers');
+const fileUpload = require("express-fileupload");
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ const sess = {
 };
 
 app.use(session(sess));
+app.use(fileUpload());
 app.use(routes);
 
 app.use(express.static(path.join(__dirname, '../portfolio/build')));

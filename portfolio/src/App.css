@@ -32,3 +32,12 @@
     transform: rotate(360deg);
   }
 }
+.blog-link {
+  color: black !important;
+}
+
+.blog-img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}

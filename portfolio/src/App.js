@@ -4,10 +4,11 @@ import {
   RouterProvider,
   Outlet
 } from "react-router-dom";
-import Home from './pages/Home/Home';
-import Blog from './pages/Home/Blog';
-import Login from './pages/Home/Login';
-import Profile from './pages/Home/Profile';
+import Home from './pages/Home';
+import Blog from './pages/Blog';
+import BlogPage from './pages/BlogPage';
+import Login from './pages/Login';
+import Profile from './pages/Profile';
 import Footer from './components/Footer/Footer';
 import Navigation from './components/Navigation/Navigation';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element: <Blog />
+      },
+      {
+        path: '/blog/:id',
+        element: <BlogPage />
       },
       {
         path: '/login',

@@ -17,7 +17,10 @@ Blog.init(
             allowNull: false,
         },
         description: {
-            type: DataTypes.STRING(1000),
+            type: DataTypes.STRING(10000),
+        },
+        photo: {
+            type: DataTypes.STRING,
         },
         date_created: {
             type: DataTypes.DATE,
