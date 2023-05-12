@@ -30,6 +30,7 @@ const ProfileBlogs = () => {
       </Container>
     );
   }
+  
 
   return (
     <Container className='m-5'>
@@ -45,6 +46,7 @@ const ProfileBlogs = () => {
                   </Col>
                   <Col xs={9}>
                     <Card.Title>{blog.title}</Card.Title>
+                    <Card.Text>{new Date(blog.date_created).toLocaleDateString()}</Card.Text>
                     <Card.Text>{user.username}</Card.Text>
                   </Col>
                 </Row>

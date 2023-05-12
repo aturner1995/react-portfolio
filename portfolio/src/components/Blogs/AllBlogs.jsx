@@ -39,6 +39,7 @@ const AllBlogs = () => {
                   <Col>
                     <Card.Title>{blog.title}</Card.Title>
                     <Card.Text>{blog.user.username}</Card.Text>
+                    <Card.Text>{new Date(blog.date_created).toLocaleDateString()}</Card.Text>
                   </Col>
                 </Row>
               </Card.Body>

@@ -27,8 +27,8 @@ const Projects = () => {
               <animated.div ref={ref} style={animationStyles}>
               <Card className='project-card m-2'>
                 <div className="image">
-                  <Card.Img variant="top" src='/images/squeakToys.JPG' className='mainImage' />
-                  <Card.Img variant="top" src='/images/squeakToys2.JPG' className='secondImage' />
+                  <Card.Img variant="top" src='/images/squeak1.JPG' className='mainImage' />
+                  <Card.Img variant="top" src='/images/squeak2.JPG' className='secondImage' />
                 </div>
                 <Card.Body>
                   <Card.Title className='text-center'>Squeak Toys</Card.Title>
@@ -47,8 +47,8 @@ const Projects = () => {
             <animated.div ref={ref} style={animationStyles}>
             <Card className='project-card m-2'>
                 <div className="image">
-                  <Card.Img variant="top" src='/images/rocketResumes.JPG' className='mainImage' />
-                  <Card.Img variant="top" src='/images/rocketResumes.JPG' className='secondImage' />
+                  <Card.Img variant="top" src='/images/rocket1.JPG' className='mainImage' />
+                  <Card.Img variant="top" src='/images/rocket2.JPG' className='secondImage' />
                 </div>
                 <Card.Body>
                   <Card.Title className='text-center'>Rocket Resumes</Card.Title>
@@ -67,8 +67,8 @@ const Projects = () => {
             <animated.div ref={ref} style={animationStyles}>
             <Card className='project-card m-2'>
                 <div className="image">
-                  <Card.Img variant="top" src='/images/mapcation.JPG' className='mainImage' />
-                  <Card.Img variant="top" src='/images/mapcation.JPG' className='secondImage' />
+                  <Card.Img variant="top" src='/images/map1.JPG' className='mainImage' />
+                  <Card.Img variant="top" src='/images/map2.JPG' className='secondImage' />
                 </div>
                 <Card.Body>
                   <Card.Title className='text-center'>Mapcation</Card.Title>

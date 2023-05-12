@@ -26,10 +26,13 @@ const BlogPage = () => {
         return <p>Loading...</p>;
     }
 
+    const dateCreated = new Date(blog.date_created).toLocaleDateString();
+
     return (
         <Container className='my-5'>
             <h2>{blog.title}</h2>
             <h6>{blog.user.username}</h6>
+            <p>{dateCreated}</p>
             <p dangerouslySetInnerHTML={{ __html: blog.description }}></p>
         </Container>
     );
