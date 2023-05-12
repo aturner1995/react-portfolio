@@ -112,10 +112,10 @@ const Login = () => {
                 <h2>Login</h2>
                 <LoginForm />
             </Col>
-            <Col className='mx-5'>
+            {/* <Col className='mx-5'>
                 <h2>Signup</h2>
                 <SignupForm />
-            </Col>
+            </Col> */}
         </Row>
     )
 }
