@@ -8,6 +8,7 @@ const userRoutes = require('./controllers/api/userRoutes.js');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const routes = require('./controllers');
 const fileUpload = require("express-fileupload");
+const cors = require('cors');
 
 dotenv.config();
 
