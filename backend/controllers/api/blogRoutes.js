@@ -48,7 +48,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const file = req.files.photo;
-        const  uploadPath = __dirname+ '/../../../portfolio/public/uploads/' + file.name
+        const  uploadPath = __dirname+ '/../../../portfolio/build/uploads/' + file.name
 
         await file.mv(uploadPath);
 

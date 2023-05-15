@@ -10,10 +10,10 @@ const openai = new OpenAIApi(configuration);
 
 router.post('/generate', async (req, res) => {
     try {
-        const prompt = `Generate a socail media post written in the tone of a a tech writer based on the following information:             
+        const prompt = `Generate a blog post written in the tone of a a tech writer based on the following information:             
         ${req.body.prompt}
         """
-        Provide the title for this post that has been optimized for SEO and the post`
+        Provide the title for this blog that has been optimized for SEO and the blog post`
 
         const response = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
