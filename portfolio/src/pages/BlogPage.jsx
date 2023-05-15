@@ -33,7 +33,7 @@ const BlogPage = () => {
             <h2>{blog.title}</h2>
             <h6>{blog.user.username}</h6>
             <p>{dateCreated}</p>
-            <p dangerouslySetInnerHTML={{ __html: blog.description }} className='blog-text'></p>
+            <p dangerouslySetInnerHTML={{ __html: blog.description }}></p>
         </Container>
     );
 };

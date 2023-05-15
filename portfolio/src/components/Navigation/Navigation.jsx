@@ -23,13 +23,13 @@ const Navigation = () => {
         <Navbar.Collapse id="basic-navbar-nav" className="nav-icons mx-5">
           <Nav className="ms-auto mx-5">
             <a href="/#projects" className="me-3 nav-links">
-              <span>PROJECTS</span>
+              <span className='nav-spans'>PROJECTS</span>
             </a>
             <a href="resume-aaronturner-2023.pdf" target="_blank" className="me-3 nav-links">
-              <span>RESUME</span>
+              <span className='nav-spans'>RESUME</span>
             </a>
             <NavLink to="/blog" className="me-3 nav-links">
-              <span>BLOG</span>
+              <span className='nav-spans'>BLOG</span>
             </NavLink>
             <a href="mailto: aaturner1995@gmail.com" className="text-center">
               <Button className="d-flex align-items-center prime-custom">CONTACT ME</Button>
