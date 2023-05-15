@@ -30,7 +30,6 @@ router.get('/:id', async (req, res) => {
                 },
             ]
         })
-        console.log(blogData)
         if (!blogData) {
             return res.status(404).json({ error: 'Blog not found' });
         }
@@ -48,9 +47,11 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const file = req.files.photo;
-        const  uploadPath = __dirname+ '/../../../portfolio/build/uploads/' + file.name
+        const uploadPath = __dirname+ '/../../../portfolio/build/uploads/' + file.name
+        const uploadPathTwo = __dirname+ '/../../../portfolio/public/uploads/' + file.name
 
         await file.mv(uploadPath);
+        await file.mv(uploadPathTwo);
 
         const blogData = await Blog.create({
             ...req.body,

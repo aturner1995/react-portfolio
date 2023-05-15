@@ -16,7 +16,7 @@ const BlogPage = () => {
                 const data = await response.json();
                 setBlog(data);
             } catch (err) {
-                console.log(err);
+                console.error(err);
             }
         }
         fetchBlogData();

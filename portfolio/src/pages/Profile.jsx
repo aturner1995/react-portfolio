@@ -8,6 +8,7 @@ const Profile = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [photo, setPhoto] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const [prompt, setPrompt] = useState('');
 
@@ -55,6 +56,7 @@ const Profile = () => {
     const handleAiSubmit = async (event) => {
         event.preventDefault();
         setPrompt('');
+        setLoading(true);
 
         try {
             const aiResponse = await fetch('/api/ai/generate', {
@@ -64,20 +66,44 @@ const Profile = () => {
             });
 
             if (aiResponse.ok) {
-                const data = await aiResponse.json();
-                const firstNewlineIndex = data.indexOf('\n');
-                const title = data.substring(0, firstNewlineIndex).replace('title: "', '').replace('"', '');
-                const blog = data.substring(firstNewlineIndex + 2).replace(/\n/g, '&nbsp;<br/>');
-                console.log(blog);
-                setDescription(blog);
-                setTitle(title);
+                const taskId = await aiResponse.json();
+                const data = await waitForBlog(taskId.taskId);
+                if (data) {
+                    const firstNewlineIndex = data.indexOf('\n');
+                    const title = data.substring(0, firstNewlineIndex).replace('title: "', '').replace('"', '');
+                    const blog = data.substring(firstNewlineIndex + 2).replace(/\n/g, '&nbsp;<br/>');
+                    console.log(blog);
+                    setDescription(blog);
+                    setTitle(title);
+                }
+            }
+        } catch (err) {
+            console.error(err);
+            alert('An error occurred. Please try again');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const waitForBlog = async (taskId) => {
+        try {
+            const response = await fetch(`/api/ai/generate/status/${taskId}`);
+            const blog = await response.json();
+
+            if (blog.status === 'completed') {
+                return blog.result;
+            } else if (blog.status === 'failed') {
+                console.error('Task failed');
+                return null;
+            } else {
+                // Task is still in progress, continue polling
+                return waitForBlog(taskId);
             }
         }
         catch (err) {
             console.error(err);
-            alert('An error occured. Please try again')
         }
-    };
+    }
 
     return (
         <>
@@ -104,15 +130,8 @@ const Profile = () => {
                                     value={description}
                                     apiKey="bfu93yxqm7w90mr33lp5gx7loru18fwje1rioa7dp3fsqque"
                                     init={{
-                                        height: 500,
-                                        menubar: false,
-                                        plugins: [
-                                            'advlist autolink lists link image charmap print preview anchor',
-                                            'searchreplace visualblocks code fullscreen',
-                                            'insertdatetime media table paste code help wordcount'
-                                        ],
-                                        toolbar:
-                                            'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help'
+                                        plugins: 'link image code',
+                                        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
                                     }}
                                     onEditorChange={handleDescriptionChange}
                                 />
@@ -132,7 +151,9 @@ const Profile = () => {
                             </div>
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="btn btn-primary my-1">Generate AI Blog</button>
+                            <button type="submit" className="btn btn-primary my-1" disabled={loading}>
+                                {loading ? 'Generating...' : 'Generate AI Blog'}
+                            </button>
                         </div>
                     </form>
                 </Col>

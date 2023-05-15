@@ -11,7 +11,6 @@ const AllBlogs = () => {
       try {
         const response = await fetch('/api/blogs');
         const data = await response.json();
-        console.log(data);
         setBlogs(data);
       } catch (err) {
         console.error(err);
