@@ -6,7 +6,7 @@ const data = {
             location: 'Fredericton, New Brunswick',
             startDate: 'May 2019',
             endDate: 'Jan 2023',
-            icon: '/images/sym-icon.png',
+            icon: '/images/sym-icon.avif',
             points: [
                 'Results-driven professional responsible for driving overall business development and growth, including financial planning and allocation of company resources.',
                 'Led logistics and operations, resulting in a 3084% increase in company growth and recognition as one of the fastest-growing companies in Canada by the Deloitte Fast 50 program.',
@@ -20,7 +20,7 @@ const data = {
             location: 'Fredericton, New Brunswick',
             startDate: 'Apr 2017',
             endDate: 'Sep 2017',
-            icon: '/images/unb-icon.png',
+            icon: '/images/unb-icon.avif',
             points: [
                 'Developed CFD code to predict the corrosion and surface morphology of corrosion in nuclear reactors, resulting in improved accuracy of predictions.',
                 'Researcher responsible for conducting a literature review on the chemistry and corrosion of power system coolants, fouling heat exchanger circuits, and processing used nuclear fuel.',
@@ -33,7 +33,7 @@ const data = {
             location: 'Saint John, New Brunswick',
             startDate: 'Apr 2016',
             endDate: 'Sep 2016',
-            icon: '/images/osco-icon.png',
+            icon: '/images/osco-icon.avif',
             points: [
                'Detail-oriented professional responsible for verifying engineering and contract drawings for accuracy before sending them to the client.',
                'Communicated effectively with clients to request information regarding engineering documents.',

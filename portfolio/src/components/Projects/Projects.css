@@ -40,3 +40,22 @@
 .project-card:hover {
     transform: scale(1.02);
 }
+
+.skills {
+    border: #292735 solid 2px;
+    border-radius: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.skills:hover {
+    background-color: #292735;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 5px #292735;
+}
+
+.card-text {
+    white-space: normal;
+  }

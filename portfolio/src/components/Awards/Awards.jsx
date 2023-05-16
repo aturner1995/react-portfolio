@@ -7,10 +7,10 @@ const Awards = () => {
     <div className='awards'>
         <Row>
             <Col className='text-center'>
-                <Image src='/images/30.png' height='75'></Image>
+                <Image src='/images/30.avif' height='75'></Image>
             </Col>
             <Col className='text-center'>
-            <Image src='/images/fast50.png' height='75'></Image>
+            <Image src='/images/fast50.avif' height='75'></Image>
             </Col>
         </Row>
     </div>

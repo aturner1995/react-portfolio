@@ -13,7 +13,7 @@ const Navigation = () => {
       <Navbar className={isHomePage ? 'transparent' : 'custom'} expand="lg">
         <NavLink to="/" className='ms-5'>
           <Image
-            src="/images/portfolio-logo-2.png"
+            src="/images/portfolio-logo-2.avif"
             height="50"
             className="d-inline-block align-top logo"
             alt="Aaron Turner Logo"

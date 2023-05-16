@@ -16,7 +16,7 @@ const Hero = () => {
                     </div>
                     <div className="small-screen">
                         <Image
-                            src="/images/headshot-removebg.png"
+                            src="/images/headshot-removebg.avif"
                             height='125'
                             className='headshot-small'
                         ></Image>
@@ -24,7 +24,7 @@ const Hero = () => {
                 </Col>
                 <Col className='right'>
                     <Image
-                        src="/images/headshot-removebg.png"
+                        src="/images/headshot-removebg.avif"
                         height='400'
                         className='headshot'
                     ></Image>
