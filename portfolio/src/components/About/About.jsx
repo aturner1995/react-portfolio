@@ -17,11 +17,11 @@ const About = () => {
                                 <Card.Title className='title'>LANGUAGES</Card.Title>
                                     <ListGroup variant="flush">
                                         <ListGroup.Item action>JavaScript (ES6)</ListGroup.Item>
+                                        <ListGroup.Item action>Python</ListGroup.Item>
                                         <ListGroup.Item action>CSS3</ListGroup.Item>
                                         <ListGroup.Item action>HTML5</ListGroup.Item>
                                         <ListGroup.Item action>SQL</ListGroup.Item>
                                         <ListGroup.Item action>NoSQL</ListGroup.Item>
-                                        <ListGroup.Item action>Python</ListGroup.Item>
                                         <ListGroup.Item action>MATLAB</ListGroup.Item>
                                     </ListGroup>
                             </Card.Body>
