@@ -1,7 +1,21 @@
 const data = {
     experience: [
         {
-            company: 'Symbodi Labs Ltd.',
+            company: 'Web Genius Consultants',
+            position: 'Software Engineer',
+            location: 'Fredericton, New Brunswick',
+            startDate: 'April 2023',
+            endDate: 'Present',
+            icon: '/images/web-icon.avif',
+            points: [
+                `Collaborated with project teams to enhance and optimize clients' websites through full-stack React development.`,
+                'Implemented innovative features and functionality, leveraging AI technologies such as natural language processing and machine learning algorithms.',
+                'Utilized best practices in UI/UX design and coding to deliver visually appealing and user-friendly websites.',
+                'Worked closely with clients to understand their specific needs and translate them into effective software solutions.',
+            ],
+        },
+        {
+            company: 'Symbodi',
             position: 'Chief Operating Officer',
             location: 'Fredericton, New Brunswick',
             startDate: 'May 2019',

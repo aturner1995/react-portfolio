@@ -18,6 +18,10 @@ const Projects = () => {
     triggerOnce: true, // only trigger the animation once
   });
 
+  const { ref: ref4, inView: inView4 } = useInView({
+    triggerOnce: true, // only trigger the animation once
+  });
+
   const animationStyles1 = useSpring({
     opacity: inView1 ? 1 : 0,
     transform: inView1 ? 'translateY(0)' : 'translateY(50px)',
@@ -33,14 +37,19 @@ const Projects = () => {
     transform: inView3 ? 'translateY(0)' : 'translateY(50px)',
   });
 
+  const animationStyles4 = useSpring({
+    opacity: inView4 ? 1 : 0,
+    transform: inView4 ? 'translateY(0)' : 'translateY(50px)',
+  });
+
   return (
     <Row className='p-4 bg-light' id='projects'>
-      <Col lg={2}>
+      <Col lg={3}>
         <h2 className='text-left'>PROJECTS</h2>
       </Col>
-      <Col lg={10}>
+      <Col lg={9}>
         <Row>
-          <Col md={4} className=" justify-content-center" style={{ minWidth: '20rem' }}>
+          <Col md={6} className=" justify-content-center" style={{ minWidth: '20rem' }}>
             <animated.div ref={ref1} style={animationStyles1}>
               <Card className='project-card m-2'>
                 <div className="image">
@@ -67,7 +76,7 @@ const Projects = () => {
               </Card>
             </animated.div>
           </Col>
-          <Col md={4} className=" justify-content-center" style={{ minWidth: '20rem' }}>
+          <Col md={6} className=" justify-content-center" style={{ minWidth: '20rem' }}>
             <animated.div ref={ref2}
               style={animationStyles2}>
               <Card className='project-card m-2'>
@@ -78,7 +87,7 @@ const Projects = () => {
                 <Card.Body>
                   <Card.Title className='text-center'>Rocket Resumes</Card.Title>
                   <Card.Text>
-                    A Full Stack Resume generator that utilizes AI to generate resumes that improve your chances of getting hired.
+                    A full stack Resume generator that utilizes AI to generate resumes that improve your chances of getting hired.
                   </Card.Text>
                   <Card.Text className='text-center d-flex flex-wrap justify-content-center'>
                     <span className='skills m-1'>OpenAI</span>
@@ -95,7 +104,7 @@ const Projects = () => {
               </Card>
             </animated.div>
           </Col>
-          <Col md={4} className=" justify-content-center " style={{ minWidth: '20rem' }}>
+          <Col md={6} className=" justify-content-center " style={{ minWidth: '20rem' }}>
             <animated.div ref={ref3} style={animationStyles3}>
               <Card className='project-card m-2'>
                 <div className="image">
@@ -105,7 +114,7 @@ const Projects = () => {
                 <Card.Body>
                   <Card.Title className='text-center'>Mapcation</Card.Title>
                   <Card.Text>
-                    A front-end travel planning application that provides YouTube travel guides, location, and restaurant suggestions.
+                    A front-end travel planning application that provides YouTube travel guides, location/restaurant suggestions.
                   </Card.Text>
                   <Card.Text className='text-center d-flex flex-wrap justify-content-center'>
                     <span className='skills m-1'>JavaScript</span>
@@ -117,6 +126,33 @@ const Projects = () => {
                   <div className="text-center">
                     <Button className="prime-custom-2 mx-2" href='https://aturner1995.github.io/Mapcation/index.html' target='_blank'>Deployed Site</Button>
                     <Button className="prime-custom-2 mx-2" href='https://github.com/aturner1995/Mapcation' target='_blank'>Source Code</Button>
+                  </div>
+                </Card.Body>
+              </Card>
+            </animated.div>
+          </Col>
+          <Col md={6} className=" justify-content-center " style={{ minWidth: '20rem' }}>
+            <animated.div ref={ref4} style={animationStyles4}>
+              <Card className='project-card m-2'>
+                <div className="image">
+                  <Card.Img variant="top" src='/images/blog1.avif' className='mainImage' />
+                  <Card.Img variant="top" src='/images/blog2.gif' className='secondImage' />
+                </div>
+                <Card.Body>
+                  <Card.Title className='text-center'>AI Tech BLOG</Card.Title>
+                  <Card.Text>
+                    A full-stack tech-blog powered by AI to quickly generate SEO optimized, tailored blog content for your business.
+                  </Card.Text>
+                  <Card.Text className='text-center d-flex flex-wrap justify-content-center'>
+                    <span className='skills m-1'>ReactJS</span>
+                    <span className='skills m-1'>OpenAI</span>
+                    <span className='skills m-1'>Express</span>
+                    <span className='skills m-1'>MySQL</span>
+                    <span className='skills m-1'>Node.js</span>
+                  </Card.Text>
+                  <div className="text-center">
+                    <Button className="prime-custom-2 mx-2" href='https://www.aaron-turner.dev/blog' target='_blank'>Deployed Site</Button>
+                    <Button className="prime-custom-2 mx-2" href='https://github.com/aturner1995/react-portfolio' target='_blank'>Source Code</Button>
                   </div>
                 </Card.Body>
               </Card>
