@@ -10,7 +10,8 @@ router.get('/', async (req, res) => {
                     model: User,
                     attributes: ['username']
                 }
-            ]
+            ],
+            order: [['date_created', 'DESC']]
         })
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
