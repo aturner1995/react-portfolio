@@ -1,5 +1,3 @@
-# react-portfolio
-An updated portfolio using the REACT framework and Express Server for the backend blog
 # React Portfolio with AI Blog Integration
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
