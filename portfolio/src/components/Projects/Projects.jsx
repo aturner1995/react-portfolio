@@ -1,10 +1,90 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 import { Card, Button, Col, Row } from 'react-bootstrap';
 import './Projects.css';
 
 const Projects = () => {
+  const [projects, setProjects] = useState([
+    {
+      id: 1,
+      title: 'Taskmaster',
+      description: 'A local service provider for freelancers and local small businesses.',
+      skills: ['React', 'Graphql', 'Express', 'Socket.io', 'Stripe'],
+      deployedSite: 'https://taskmaster-nb-b422cb18fd72.herokuapp.com/',
+      sourceCode: 'https://github.com/aturner1995/taskmaster',
+      images: {
+        main: '/images/task1.avif',
+        second: '/images/task2.avif'
+      }
+    },
+    {
+      id: 2,
+      title: 'Squeak Toys',
+      description: 'A Full Stack e-commerce application for Squeak Toys built with React, Express, Stripe, and MongoDB.',
+      skills: ['React', 'MongoDB', 'Express', 'Stripe', 'Node.js'],
+      deployedSite: 'https://squeaktoys.herokuapp.com/',
+      sourceCode: 'https://github.com/aturner1995/react-ecommerce-squeakToys',
+      images: {
+        main: '/images/squeak1.avif',
+        second: '/images/squeak2.avif'
+      }
+    },
+    {
+      id: 3,
+      title: 'Bullseye Tracker',
+      description: 'A full stack paper algorithmic trading application built with Python and Django.',
+      skills: ['Python', 'Django', 'Bootstrap', 'Algorithmic Trading'],
+      deployedSite: 'https://github.com/aturner1995/stock-trader',
+      sourceCode: 'https://github.com/aturner1995/stock-trader',
+      images: {
+        main: '/images/stock1.avif',
+        second: '/images/stock2.avif'
+      }
+    },
+    {
+      id: 4,
+      title: 'Rocket Resumes',
+      description: 'A full stack Resume generator that utilizes AI to generate resumes that improve your chances of getting hired.',
+      skills: ['OpenAI', 'Express', 'Handlebars', 'MySQL', 'Node.js'],
+      deployedSite: 'https://rocket-resumes.herokuapp.com/',
+      sourceCode: 'https://github.com/aturner1995/group-project-2',
+      images: {
+        main: '/images/rocket1.avif',
+        second: '/images/rocket2.avif'
+      }
+    },
+    {
+      id: 5,
+      title: 'Mapcation',
+      description: 'A front-end travel planning application that provides YouTube travel guides, location/restaurant suggestions.',
+      skills: ['JavaScript', 'jQuery', 'HTML5', 'Bulma', 'AJAX'],
+      deployedSite: 'https://aturner1995.github.io/Mapcation/index.html',
+      sourceCode: 'https://github.com/aturner1995/Mapcation',
+      images: {
+        main: '/images/map1.avif',
+        second: '/images/map2.avif'
+      }
+    },
+    {
+      id: 6,
+      title: 'AI Tech BLOG',
+      description: 'A full-stack tech-blog powered by AI to quickly generate SEO optimized, tailored blog content for your business.',
+      skills: ['ReactJS', 'OpenAI', 'Express', 'MySQL', 'Node.js'],
+      deployedSite: 'https://www.aaron-turner.dev/blog',
+      sourceCode: 'https://github.com/aturner1995/react-portfolio',
+      images: {
+        main: '/images/blog1.avif',
+        second: '/images/blog2.gif'
+      }
+    },
+  ]);
+
+  const [visibleProjects, setVisibleProjects] = useState(4);
+
+  const loadMoreProjects = () => {
+    setVisibleProjects(prevVisibleProjects => prevVisibleProjects + 2);
+  };
 
   const { ref: ref1, inView: inView1 } = useInView({
     triggerOnce: true, // only trigger the animation once
@@ -49,116 +129,39 @@ const Projects = () => {
       </Col>
       <Col lg={9}>
         <Row>
-          <Col md={6} className=" justify-content-center" style={{ minWidth: '20rem' }}>
-            <animated.div ref={ref1} style={animationStyles1}>
-              <Card className='project-card m-2'>
-                <div className="image">
-                  <Card.Img variant="top" src='/images/squeak1.avif' className='mainImage' />
-                  <Card.Img variant="top" src='/images/squeak2.avif' className='secondImage' />
-                </div>
-                <Card.Body>
-                  <Card.Title className='text-center'>Squeak Toys</Card.Title>
-                  <Card.Text>
-                    A Full Stack e-commerce application for Squeak Toys built with React, Express, Stripe, and MongoDB.
-                  </Card.Text>
-                  <Card.Text className='text-center d-flex flex-wrap justify-content-center'>
-                    <span className='skills m-1'>ReactJS</span>
-                    <span className='skills m-1'>MongoDB</span>
-                    <span className='skills m-1'>Express</span>
-                    <span className='skills m-1'>Stripe</span>
-                    <span className='skills m-1'>Node.js</span>
-                  </Card.Text>
-                  <div className="text-center">
-                    <Button className="prime-custom-2 mx-2" href='https://squeaktoys.herokuapp.com/' target='_blank'>Deployed Site</Button>
-                    <Button className="prime-custom-2 mx-2" href='https://github.com/aturner1995/react-ecommerce-squeakToys' target='_blank'>Source Code</Button>
+          {projects.slice(0, visibleProjects).map((project, index) => (
+            <Col key={project.id} md={6} className="justify-content-center" style={{ minWidth: '20rem' }}>
+              <animated.div ref={index === 0 ? ref1 : index === 1 ? ref2 : index === 2 ? ref3 : ref4} style={index === 0 ? animationStyles1 : index === 1 ? animationStyles2 : index === 2 ? animationStyles3 : animationStyles4}>
+                <Card className='project-card m-2'>
+                  <div className="image">
+                    <Card.Img variant="top" src={project.images.main} className='mainImage' />
+                    <Card.Img variant="top" src={project.images.second} className='secondImage' />
                   </div>
-                </Card.Body>
-              </Card>
-            </animated.div>
-          </Col>
-          <Col md={6} className=" justify-content-center" style={{ minWidth: '20rem' }}>
-            <animated.div ref={ref2}
-              style={animationStyles2}>
-              <Card className='project-card m-2'>
-                <div className="image">
-                  <Card.Img variant="top" src='/images/rocket1.avif' className='mainImage' />
-                  <Card.Img variant="top" src='/images/rocket2.avif' className='secondImage' />
-                </div>
-                <Card.Body>
-                  <Card.Title className='text-center'>Rocket Resumes</Card.Title>
-                  <Card.Text>
-                    A full stack Resume generator that utilizes AI to generate resumes that improve your chances of getting hired.
-                  </Card.Text>
-                  <Card.Text className='text-center d-flex flex-wrap justify-content-center'>
-                    <span className='skills m-1'>OpenAI</span>
-                    <span className='skills m-1'>Express</span>
-                    <span className='skills m-1'>Handlebars</span>
-                    <span className='skills m-1'>MySQL</span>
-                    <span className='skills m-1'>Node.js</span>
-                  </Card.Text>
-                  <div className="text-center">
-                    <Button className="prime-custom-2 mx-2" href='https://rocket-resumes.herokuapp.com/' target='_blank'>Deployed Site</Button>
-                    <Button className="prime-custom-2 mx-2" href='https://github.com/aturner1995/group-project-2' target='_blank'>Source Code</Button>
-                  </div>
-                </Card.Body>
-              </Card>
-            </animated.div>
-          </Col>
-          <Col md={6} className=" justify-content-center " style={{ minWidth: '20rem' }}>
-            <animated.div ref={ref3} style={animationStyles3}>
-              <Card className='project-card m-2'>
-                <div className="image">
-                  <Card.Img variant="top" src='/images/map1.avif' className='mainImage' />
-                  <Card.Img variant="top" src='/images/map2.avif' className='secondImage' />
-                </div>
-                <Card.Body>
-                  <Card.Title className='text-center'>Mapcation</Card.Title>
-                  <Card.Text>
-                    A front-end travel planning application that provides YouTube travel guides, location/restaurant suggestions.
-                  </Card.Text>
-                  <Card.Text className='text-center d-flex flex-wrap justify-content-center'>
-                    <span className='skills m-1'>JavaScript</span>
-                    <span className='skills m-1'>jQuery</span>
-                    <span className='skills m-1'>HTML5</span>
-                    <span className='skills m-1'>Bulma</span>
-                    <span className='skills m-1'>AJAX</span>
-                  </Card.Text>
-                  <div className="text-center">
-                    <Button className="prime-custom-2 mx-2" href='https://aturner1995.github.io/Mapcation/index.html' target='_blank'>Deployed Site</Button>
-                    <Button className="prime-custom-2 mx-2" href='https://github.com/aturner1995/Mapcation' target='_blank'>Source Code</Button>
-                  </div>
-                </Card.Body>
-              </Card>
-            </animated.div>
-          </Col>
-          <Col md={6} className=" justify-content-center " style={{ minWidth: '20rem' }}>
-            <animated.div ref={ref4} style={animationStyles4}>
-              <Card className='project-card m-2'>
-                <div className="image">
-                  <Card.Img variant="top" src='/images/blog1.avif' className='mainImage' />
-                  <Card.Img variant="top" src='/images/blog2.gif' className='secondImage' />
-                </div>
-                <Card.Body>
-                  <Card.Title className='text-center'>AI Tech BLOG</Card.Title>
-                  <Card.Text>
-                    A full-stack tech-blog powered by AI to quickly generate SEO optimized, tailored blog content for your business.
-                  </Card.Text>
-                  <Card.Text className='text-center d-flex flex-wrap justify-content-center'>
-                    <span className='skills m-1'>ReactJS</span>
-                    <span className='skills m-1'>OpenAI</span>
-                    <span className='skills m-1'>Express</span>
-                    <span className='skills m-1'>MySQL</span>
-                    <span className='skills m-1'>Node.js</span>
-                  </Card.Text>
-                  <div className="text-center">
-                    <Button className="prime-custom-2 mx-2" href='https://www.aaron-turner.dev/blog' target='_blank'>Deployed Site</Button>
-                    <Button className="prime-custom-2 mx-2" href='https://github.com/aturner1995/react-portfolio' target='_blank'>Source Code</Button>
-                  </div>
-                </Card.Body>
-              </Card>
-            </animated.div>
-          </Col>
+                  <Card.Body>
+                    <Card.Title className='text-center'>{project.title}</Card.Title>
+                    <Card.Text>{project.description}</Card.Text>
+                    <Card.Text className='text-center d-flex flex-wrap justify-content-center'>
+                      {project.skills.map(skill => (
+                        <span key={skill} className='skills m-1'>{skill}</span>
+                      ))}
+                    </Card.Text>
+                    <div className="text-center">
+                      <Button className="prime-custom-2 mx-2" href={project.deployedSite} target='_blank'>Deployed Site</Button>
+                      <Button className="prime-custom-2 mx-2" href={project.sourceCode} target='_blank'>Source Code</Button>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </animated.div>
+            </Col>
+          ))}
         </Row>
+        {visibleProjects < projects.length && (
+          <Row className="mt-4">
+            <Col className="text-center">
+              <Button variant="outline-secondary" onClick={loadMoreProjects}>Load More</Button>
+            </Col>
+          </Row>
+        )}
       </Col>
     </Row>
   );
